@@ -36,11 +36,6 @@ data work.users;
   set users_j.root;
   keep id username email;
   
-  /* Add location */
-  length city country $50;
-  city = "New York";
-  country = 'US';
-run;
 
 /* Create dimension tables */
 /* Create dim_product */
@@ -55,7 +50,6 @@ run;
 data work.dim_user;
   set work.users;
   rename id = user_id;
-  keep id username email city country;
 run;
 
 /* Create dim_date */
